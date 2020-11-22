@@ -1,2 +1,0 @@
-(this.webpackJsonpaa=this.webpackJsonpaa||[]).push([[0],{3:function(e,n,t){e.exports=t(8)},8:function(e,n,t){"use strict";t.r(n);var a=t(0),r=t.n(a),c=t(2);var i=function(){return r.a.createElement("div",{className:"page-container"},"Art-paint")};t.n(c).a.render(r.a.createElement("div",null,r.a.createElement(i,null)),document.getElementById("root"))}},[[3,1,2]]]);
-//# sourceMappingURL=main.86fa804a.chunk.js.map
