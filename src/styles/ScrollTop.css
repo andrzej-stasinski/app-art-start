@@ -1,0 +1,11 @@
+.divek {
+    width: 3rem;
+    height: 3rem;
+    transition: all 500ms;
+    color: #c00;
+}
+.divek:hover {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: red;
+}

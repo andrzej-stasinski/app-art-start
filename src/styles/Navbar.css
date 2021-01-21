@@ -1,0 +1,15 @@
+.home {
+    color: yellow;
+}
+.home {
+    font-size: 26px;;
+}
+.navbar-brand {
+    margin-right: 0px !important;
+}
+.navbar {
+    color: red;
+    position: fixed !important;
+    width: 100vw;
+    z-index: 1;
+}
