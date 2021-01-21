@@ -1,19 +1,19 @@
 ## App Art in react
 
-#### Features
+## Features
 
-## general features
+#### general features
 * project in react
 * register/login/forgot password
 * REST API - firebase realtime database & firebase storage
-## for users
+#### for users
 * show images
 * show comments
 
-## for user logged
+#### for user logged
 * add comments
 
-## for admin
+#### for admin
 * form adding images & description
 * managing images - delete
 * managing comments - delete
