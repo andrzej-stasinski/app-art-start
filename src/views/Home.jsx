@@ -4,8 +4,8 @@ import {Carousel, Image} from 'react-bootstrap';
 import slide1 from '../images/slider/slide1.jpg';
 import slide2 from '../images/slider/slide2.jpg';
 import slide3 from '../images/slider/slide3.jpg';
-import img1 from '../images/p1.jpg';
-import img2 from '../images/p2.jpg';
+// import img1 from '../images/p1.jpg';
+// import img2 from '../images/p2.jpg';
 
  const Home = () => {
 
@@ -56,10 +56,6 @@ import img2 from '../images/p2.jpg';
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-                <img src={img1} alt="img1"/>
-                <img src={img2} alt="img2" />              
-                <img src="./assets/p1.jpg" alt='assets-img-p1' />
-                <img src="assets/p2.jpg" alt='assets-img-p2' />  
                 </div>              
             </PageWrapper>             
          </div>

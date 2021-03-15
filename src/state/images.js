@@ -49,7 +49,11 @@ export const getImages = () => dispatch => {
             ? Object.keys(data).map(key => ({id: key, ...data[key]}))
             : [];
             // console.log(dataArr);
-            dispatch(addImages(dataArr));
+            // reverse
+            const reverseData = dataArr.reverse()
+            dispatch(addImages(reverseData));
+            // bez reverce
+            // dispatch(addImages(dataArr));
             dispatch(spinnerProgress.remove());
             dispatch(addSnack('Pobrano dane'));
         })

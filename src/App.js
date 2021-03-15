@@ -18,7 +18,6 @@ import Snack from './views/Snack';
 import Scroll from './views/Scroll';
 import ScrollTop from './components/ScrollTop';
 import ImgShow from './views/ImgShow';
-import ChatAdmin from './views/ChatAdmin'
 
 function App(props) {
   console.log(props)
@@ -33,9 +32,10 @@ function App(props) {
               <Route exact path="/" component={Home} />
               <Route exact path="/paint/" component={Home} />
 
-              <Route path="/Features"></Route>
-              <Route path="/Features-admin">
+              <Route path="/features"><Features /></Route>
+              <Route path="/features-admin">
                 <Features isAdmin />
+                {/* <Features /> */}
               </Route>
               <Route path='/form'>
                 <Form />
@@ -49,9 +49,6 @@ function App(props) {
               <Route path='/img_database'>
                 <ImgDatabase />
               </Route>
-              <Route path='/komentarze-admin'>
-                <ChatAdmin />
-              </Route>
               <Route path="/MoreDeets">
                 <MoreDeets />
               </Route>
@@ -64,6 +61,7 @@ function App(props) {
               </Route>
               <Route path="/forgot"><Forgot /></Route>
               <Route path="/chat"><Chat /></Route>
+              <Route path="/chat-admin"><Chat isAdmin /></Route>
               <Route path="/snackbars"><Snack /></Route>
               <Route path="/scroll-top"><Scroll /></Route>
             </Switch>

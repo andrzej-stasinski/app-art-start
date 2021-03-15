@@ -21,6 +21,7 @@ class NavbarMenu extends React.Component {
   state = {
     user: null,
     admin: false,
+    isExpanded: false,
   }
 
   handleSignOut = () => {
@@ -44,7 +45,11 @@ class NavbarMenu extends React.Component {
 
   componentWillUnmount() {
       this.state.unsubscribe();
-  }  
+  } 
+  
+  close = () => {
+    this.setState({ isExpanded: false });
+  }
 
   render() {
     // console.log(admin);
@@ -52,11 +57,15 @@ class NavbarMenu extends React.Component {
       <>
       {/* {console.log('user: ', this.state.user)} */}
       {/* {console.log('admin: ', this.state.admin)} */}
-      <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-
+      <Navbar 
+        collapseOnSelect expand="sm" bg="dark" variant="dark"
+        expanded={this.state.isExpanded}
+      >
         <Navbar.Brand></Navbar.Brand>
-
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle 
+          aria-controls="responsive-navbar-nav" 
+          onClick={() => this.setState({isExpanded: !this.state.isExpanded})}
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
 
           {/* Home Ok - icon awesome */}
@@ -87,13 +96,14 @@ class NavbarMenu extends React.Component {
               {/* <Nav.Link as={NavLink} to="/MoreDeets"> MoreDeets </Nav.Link>  */}
 
               {/* user client */}
-              <Nav.Link as={NavLink} to="/img-show"> ImgShow </Nav.Link>
+              <Nav.Link as={NavLink} to="/img-show" onClick={this.close}> ImgShow </Nav.Link>
+              <Nav.Link as={NavLink} to="/chat" onClick={this.close}> Chat </Nav.Link>
 
               {/* user logged */}
               {
               this.state.user &&
                 <>
-                  <Nav.Link as={NavLink} to="/chat"> Chat </Nav.Link>
+                  {/* <Nav.Link as={NavLink} to="/komentarze-logged"> ChatLogged </Nav.Link> */}
                 </>
               } 
 
@@ -110,10 +120,10 @@ class NavbarMenu extends React.Component {
               {
               this.state.user && this.state.admin &&
               <NavDropdown title="Admin" id="collasible-nav-dropdown">
-                <NavDropdown.Item as={NavLink} to="/form"> Form </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/komentarze-admin"> Komentarze </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/img_storage"> Img-storage </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/img_database"> Img-database </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/form" onClick={this.close}> Form </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/chat-admin" onClick={this.close}> Komentarze </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/img_storage" onClick={this.close}> Img-storage </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/img_database" onClick={this.close}> Img-database </NavDropdown.Item>
               </NavDropdown>
               }
 
@@ -122,7 +132,7 @@ class NavbarMenu extends React.Component {
               this.state.user 
               ? <Nav.Link onClick={this.handleSignOut}> Sign Out </Nav.Link>
               // ? <Nav.Link as={NavLink} to="/sing-out" onClick={this.handleSignOut}> Sign Out </Nav.Link>
-              : <Nav.Link as={NavLink} to="/sign-in"> Sign In </Nav.Link>
+              : <Nav.Link as={NavLink} to="/sign-in" onClick={this.close}> Sign In </Nav.Link>
               }
           </Nav>
 

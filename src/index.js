@@ -14,7 +14,6 @@ setTimeout(() => {
   store.dispatch(spinnerProgress.remove());
 }, 500);
 
-// AS
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
@@ -30,11 +29,16 @@ firebase.initializeApp(firebaseConfig);
 
 
 ReactDOM.render(
-  <div>
+  <React.StrictMode>
     <Provider store={store}>
       <App />      
     </Provider>
-  </div>,
+  </React.StrictMode>,
+  // <div>
+  //   <Provider store={store}>
+  //     <App />      
+  //   </Provider>
+  // </div>,
   document.getElementById('root')
 );
 

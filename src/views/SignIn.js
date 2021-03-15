@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import {connect} from 'react-redux';
 import {spinnerProgress} from '../state/progress';
 import {addSnack} from '../state/snackbars';
+import {setIsLogged, addUser} from '../state/user'
 
 const styles = {
     Col: {
@@ -65,6 +66,8 @@ class SignIn extends Component {
                 // console.log(res);
                 // console.log('uid ',res.user.uid);
                 // console.log('refreshToken ', res.user.refreshToken)
+                this.props._setIsLogged(true)
+                this.props._addUser(res.user.email);
                 this.setState({ redirect: true });
                 this.props._removeSpinner();
             })
@@ -82,8 +85,10 @@ class SignIn extends Component {
             this.props._addSpinner();
             firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 console.log('Sign In');
+                this.props._setIsLogged(true)
+                this.props._addUser(data.user.email);
                 this.setState({ redirect: true });
                 this.props._removeSpinner();
             })
@@ -182,6 +187,8 @@ const mapDispatchToProps = ({
     _addSpinner: spinnerProgress.add,
     _removeSpinner: spinnerProgress.remove,
     _addSnack: addSnack,
+    _setIsLogged: setIsLogged,
+    _addUser: addUser,
 })
 // export default SignIn;
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

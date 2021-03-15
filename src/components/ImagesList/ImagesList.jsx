@@ -17,6 +17,9 @@ const ImagesList = (props) => {
         <div style={styles.container}>
             {
             props.data.map(item => (
+            // reverse - tutaj raz robi od najmłodszych/drugi raz od najstarszych i tak w kółko
+            // wykonano dobrze w Redux - images
+            // props.data.reverse().map(item => (
                 <ImagesListItem key={item.id} 
                     data={item} 
                     changeRoute={props.changeRoute}
